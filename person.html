@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Personendetails</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<header></header>
+
+<div class="container">
+<h2>Details zum Führungszeugnis</h2>
+
+<div id="details"></div>
+
+<br>
+<a href="archiv.html">Zurück zum Archiv</a>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+    const params = new URLSearchParams(window.location.search);
+    const id = Number(params.get("id"));
+
+    const archiv = await loadArchiv();
+    const entry = archiv.find(e => e.id === id);
+
+    const div = document.getElementById("details");
+
+    if (!entry) {
+        div.innerHTML = "<p>Eintrag nicht gefunden.</p>";
+        return;
+    }
+
+    div.innerHTML = `
+        <p><strong>Name:</strong> ${entry.name}</p>
+        <p><strong>Geburtsdatum:</strong> ${entry.geburtsdatum}</p>
+        <p><strong>Geburtsort:</strong> ${entry.geburtsort}</p>
+        <p><strong>Datum:</strong> ${entry.datum}</p>
+        <p><strong>Sicherheitsnummer (Hex):</strong> ${entry.sicherheitsnummer_hex}</p>
+        <p><strong>Dokument:</strong> <a href="${entry.dokumentlink}" target="_blank">Öffnen</a></p>
+        <p><strong>Sachbearbeiter:</strong> ${entry.sachbearbeiter}</p>
+    `;
+});
+</script>
+
+</body>
+</html>
