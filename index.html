@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Führungszeugnis – Landesgericht Falkenheim</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<header></header>
+
+<div class="container">
+<h2>Führungszeugnis erstellen</h2>
+
+<button onclick="window.open('https://docs.google.com/document/d/1iESr2CW65Nz0FEL_Asy7are_bjD-GGBrAPw3g424YIw/edit?usp=sharing','_blank')">
+    Führungszeugnis Vorlage öffnen
+</button>
+
+<br><br>
+
+<form id="fzForm">
+    <label>Vollständiger Name der Person:</label>
+    <input name="name" required>
+
+    <label>Geburtsdatum:</label>
+    <input type="date" name="geburtsdatum" required>
+
+    <label>Geburtsort:</label>
+    <input name="geburtsort" required>
+
+    <label>Link zum fertigen Google‑Docs‑Dokument:</label>
+    <input name="dokumentlink" required>
+
+    <label>Sachbearbeiter (Name):</label>
+    <input name="sachbearbeiter" required>
+
+    <label>
+        <input type="checkbox" id="agree" required>
+        Ich bestätige die Richtigkeit der Angaben.
+    </label>
+
+    <button type="submit">Einreichen</button>
+</form>
+
+<br>
+<a href="archiv.html">Zum Archiv</a>
+
+</div>
+</body>
+</html>
