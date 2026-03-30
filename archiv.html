@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Archiv – Landesgericht Falkenheim</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<header></header>
+
+<div class="container">
+<h2>Archiv aller Führungszeugnisse</h2>
+
+<table id="archivTable" border="1" cellpadding="8" style="width:100%;">
+    <tr>
+        <th>Name</th>
+        <th>Geburtsdatum</th>
+        <th>Geburtsort</th>
+        <th>Datum</th>
+        <th>Sicherheitsnummer</th>
+        <th>Details</th>
+    </tr>
+</table>
+
+<br>
+<a href="index.html">Neues Führungszeugnis</a>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+    const archiv = await loadArchiv();
+    const table = document.getElementById("archivTable");
+
+    archiv.forEach(entry => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${entry.name}</td>
+            <td>${entry.geburtsdatum}</td>
+            <td>${entry.geburtsort}</td>
+            <td>${entry.datum}</td>
+            <td>${entry.sicherheitsnummer_hex}</td>
+            <td><a href="person.html?id=${entry.id}">Öffnen</a></td>
+        `;
+        table.appendChild(row);
+    });
+});
+</script>
+
+</body>
+</html>
